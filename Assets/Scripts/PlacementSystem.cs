@@ -18,7 +18,7 @@ public class PlacementSystem : MonoBehaviour
     private ObjectsDatabaseS0 database;
     private int selectedObjectIndex = -1;
 
-    private GridData floorData, furnitureData;
+    private GridData furnitureData;
 
     private Renderer previewRenderer;
 
@@ -30,7 +30,6 @@ public class PlacementSystem : MonoBehaviour
     private void Start()
     {
         StopPlacement();
-        floorData = new();
         furnitureData = new();
         previewRenderer = cellIndicator.GetComponentInChildren<Renderer>();
     }
@@ -68,9 +67,7 @@ public class PlacementSystem : MonoBehaviour
         spritePos.y += database.objectsData[selectedObjectIndex].YOffset;
         newObject.transform.position = spritePos;
         placedGameObject.Add(newObject);
-        GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ?
-           floorData :
-           furnitureData;
+        GridData selectedData = furnitureData;
         selectedData.AddObjectAt(gridPos,
             database.objectsData[selectedObjectIndex].Size,
             database.objectsData[selectedObjectIndex].ID,
@@ -79,10 +76,7 @@ public class PlacementSystem : MonoBehaviour
 
     private bool CheckPlacementValidity(Vector3Int gridPos, int selectedObjectIndex)
     {
-        GridData selectedData = database.objectsData[selectedObjectIndex].ID == 0 ?
-            floorData :
-            furnitureData;
-
+        GridData selectedData = furnitureData;
 
         return selectedData.CanPlaceObjectAt(gridPos, database.objectsData[selectedObjectIndex].Size);
     }
