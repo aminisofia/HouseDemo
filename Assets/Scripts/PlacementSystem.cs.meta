@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5639768da614b284e8d35999c8b1267d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mouseIndicator: {instanceID: 0}
+  - cellIndicator: {instanceID: 0}
+  - inputManager: {instanceID: 0}
+  - grid: {instanceID: 0}
+  - database: {fileID: 11400000, guid: 919060b135217d440acae396497aa97c, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
